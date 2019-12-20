@@ -1,0 +1,37 @@
+service: tf-test
+provider:
+  name: aws
+  runtime: python3.7
+  stage: sandbox
+  profile: sandbox
+  region: eu-west-1
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    zip: true
+    slim: true
+    strip: false
+    slimPatterns:
+      - "**/tensorboard/plugins"
+      - "**/tensorboard/webfiles.zip"
+      - "**/tensorflow_core/contrib"
+      - "**/tensorflow_core/examples"
+      - "**/tensorflow_core/include"
+      - "**/tensorflow_estimator"
+      - "**/werkzeug"
+      - "**/wheel"
+
+package:
+  include:
+    - handler.py
+  exclude:
+    - '**'
+
+functions:
+  get:
+    handler: handler.get
+    events:
+      - http: GET /
