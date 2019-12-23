@@ -12,17 +12,17 @@ custom:
   pythonRequirements:
     dockerizePip: non-linux
     zip: true
-    slim: true
-    strip: false
-    slimPatterns:
-      - "**/tensorboard/plugins"
-      - "**/tensorboard/webfiles.zip"
-      - "**/tensorflow_core/contrib"
-      - "**/tensorflow_core/examples"
-      - "**/tensorflow_core/include"
-      - "**/tensorflow_estimator"
-      - "**/werkzeug"
-      - "**/wheel"
+    # slim: true
+    # strip: false
+    # slimPatterns:
+    #   - "**/tensorboard/plugins"
+    #   - "**/tensorboard/webfiles.zip"
+    #   - "**/tensorflow_core/contrib"
+    #   - "**/tensorflow_core/examples"
+    #   - "**/tensorflow_core/include"
+    #   - "**/tensorflow_estimator"
+    #   - "**/werkzeug"
+    #   - "**/wheel"
 
 package:
   include:
@@ -33,5 +33,6 @@ package:
 functions:
   get:
     handler: handler.get
+    timeout: 30
     events:
       - http: GET /
