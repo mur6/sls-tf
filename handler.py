@@ -5,13 +5,12 @@ except ImportError:
 
 
 import json
-
-import numpy as np
+import tensorflow as tf
 
 
 def get(event, context):
-    a = np.arange(15).reshape(3, 5)
-    js = json.dumps(a.tolist())
+    a = tf.random.normal([2, 2])
+    js = json.dumps(a.numpy().tolist())
     print(f"Returned json: {js}")
     response = {"statusCode": 200, "body": js}
     return response
