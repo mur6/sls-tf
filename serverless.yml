@@ -12,17 +12,19 @@ custom:
   pythonRequirements:
     dockerizePip: non-linux
     zip: true
-    # slim: true
-    # strip: false
-    # slimPatterns:
-    #   - "**/tensorboard/plugins"
-    #   - "**/tensorboard/webfiles.zip"
-    #   - "**/tensorflow_core/contrib"
-    #   - "**/tensorflow_core/examples"
-    #   - "**/tensorflow_core/include"
-    #   - "**/tensorflow_estimator"
-    #   - "**/werkzeug"
-    #   - "**/wheel"
+    slim: true
+    strip: true
+    slimPatterns:
+      - "**/tensorboard/plugins"
+      - "**/tensorboard/webfiles.zip"
+      - "**/tensorflow_core/contrib"
+      - "**/tensorflow_core/examples"
+      - "**/tensorflow_core/include"
+      - "**/tensorflow_estimator"
+      #- "**/werkzeug"
+      #- "**/wheel"
+    useDownloadCache: true
+    useStaticCache: true
 
 package:
   include:
