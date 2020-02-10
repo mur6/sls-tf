@@ -3,3 +3,6 @@ node_modules/
 .serverless/
 .requirements.zip
 .vscode/
+# ignore temporarily
+unzip_requirements.py
+wheels/
